@@ -4,7 +4,6 @@ import '../css/MovieList.css';
 
 const MovieList = props => {
 	const movies = props.movies.map(movie => {
-		const date = new Date(movie.release_date);
 		return (
 			<div key={movie.id} className="movie column">
 				<Link className="movie-link" to={'/movies/' + movie.id}>
@@ -18,12 +17,7 @@ const MovieList = props => {
 					</div>
 					<div className="movie-meta">
 						<h4>{movie.title}</h4>
-						<span>
-							{new Intl.DateTimeFormat('en-US', {
-								year: 'numeric',
-								month: 'long'
-							}).format(date)}
-						</span>
+						<span>{movie.release_date}</span>
 					</div>
 				</Link>
 			</div>
